@@ -1,674 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dheera Shaji | Data Scientist Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #ffffff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #1F4E79;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
-        
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.95em;
-        }
-        
-        nav a:hover {
-            color: #1F4E79;
-        }
-        
-        /* Hero Section with Photo */
-        .hero {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .hero-text h1 {
-            font-size: 3.5em;
-            color: #1F4E79;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-        
-        .hero-text .subtitle {
-            font-size: 1.5em;
-            color: #666;
-            margin-bottom: 25px;
-            font-weight: 300;
-        }
-        
-        .hero-text .description {
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 35px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 15px 35px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            font-size: 1em;
-        }
-        
-        .btn-primary {
-            background: #1F4E79;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #2c5f8d;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(31, 78, 121, 0.3);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: #1F4E79;
-            border: 2px solid #1F4E79;
-        }
-        
-        .btn-secondary:hover {
-            background: #1F4E79;
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .hero-image {
-            flex: 0 0 350px;
-            text-align: center;
-        }
-        
-        .profile-photo {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
-        }
-        
-        .profile-photo:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Photo Upload Instructions */
-        .photo-placeholder {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1F4E79 0%, #2c5f8d 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
-            font-size: 1.2em;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-        
-        .photo-placeholder p {
-            margin-top: 15px;
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-        
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-        
-        section:nth-child(odd) {
-            background: #f8f9fa;
-        }
-        
-        h2 {
-            font-size: 2.8em;
-            color: #1F4E79;
-            margin-bottom: 50px;
-            text-align: center;
-            font-weight: 700;
-        }
-        
-        /* About */
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.15em;
-            line-height: 1.9;
-            color: #555;
-        }
-        
-        .about-content p {
-            margin-bottom: 25px;
-        }
-        
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .skill-category {
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-        
-        .skill-category h3 {
-            color: #1F4E79;
-            margin-bottom: 20px;
-            font-size: 1.4em;
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .skill-tag {
-            background: #e9ecef;
-            color: #1F4E79;
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .skill-tag:hover {
-            background: #1F4E79;
-            color: white;
-        }
-        
-        /* Core Competencies */
-        .competencies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .competency-pill {
-            background: white;
-            color: #1F4E79;
-            padding: 15px 28px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            border: 2px solid #e9ecef;
-        }
-        
-        .competency-pill:hover {
-            background: #1F4E79;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(31, 78, 121, 0.3);
-        }
-        
-        /* Experience */
-        .experience-item {
-            background: white;
-            padding: 45px;
-            margin-bottom: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border-left: 5px solid #1F4E79;
-        }
-        
-        .experience-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-        }
-        
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .experience-header h3 {
-            color: #1F4E79;
-            font-size: 1.6em;
-        }
-        
-        .experience-date {
-            color: #666;
-            font-weight: 600;
-            font-size: 1em;
-        }
-        
-        .experience-item ul {
-            list-style-position: outside;
-            margin-left: 25px;
-        }
-        
-        .experience-item li {
-            margin-bottom: 12px;
-            line-height: 1.7;
-            color: #555;
-        }
-        
-        /* Education */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .education-item {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-        
-        .education-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-        }
-        
-        .education-item h3 {
-            color: #1F4E79;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-        
-        .education-item p {
-            color: #555;
-            margin-bottom: 8px;
-        }
-        
-        /* Contact */
-        #contact {
-            text-align: center;
-            background: linear-gradient(135deg, #1F4E79 0%, #2c5f8d 100%);
-            color: white;
-        }
-        
-        #contact h2 {
-            color: white;
-        }
-        
-        .contact-info {
-            font-size: 1.2em;
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            padding: 12px 25px;
-            border-radius: 25px;
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .contact-info a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-3px);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.5em;
-            }
-            
-            .hero-content {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            
-            .hero-image {
-                flex: 0 0 250px;
-            }
-            
-            .profile-photo,
-            .photo-placeholder {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            h2 {
-                font-size: 2.2em;
-            }
-            
-            nav ul {
-                gap: 15px;
-                font-size: 0.9em;
-            }
-            
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dheera Shaji | Data Scientist Portfolio</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.98);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #1F4E79;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav a:hover {
+      color: #1F4E79;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5em;
+      color: #1F4E79;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.5em;
+      color: #666;
+      margin-bottom: 25px;
+      font-weight: 300;
+      overflow: hidden;
+      border-right: .15em solid #1F4E79;
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+      width: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #1F4E79; }
+    }
+
+    .hero-text .description {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+      font-size: 1em;
+    }
+
+    .btn-primary {
+      background: #1F4E79;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2c5f8d;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(31, 78, 121, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #1F4E79;
+      border: 2px solid #1F4E79;
+    }
+
+    .btn-secondary:hover {
+      background: #1F4E79;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      flex: 0 0 350px;
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    section:nth-child(odd) {
+      background: #f8f9fa;
+    }
+
+    h2 {
+      font-size: 2.8em;
+      color: #1F4E79;
+      margin-bottom: 50px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .skill-category h3 {
+      color: #1F4E79;
+      margin-bottom: 20px;
+      font-size: 1.4em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .skill-tag {
+      background: #e9ecef;
+      color: #1F4E79;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .skill-tag:hover {
+      background: #1F4E79;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(31, 78, 121, 0.4);
+    }
+
+    /* Experience */
+    .experience-item {
+      background: white;
+      padding: 45px;
+      margin-bottom: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      border-left: 5px solid #1F4E79;
+    }
+
+    .experience-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .experience-header h3 {
+      color: #1F4E79;
+      font-size: 1.6em;
+    }
+
+    .experience-date {
+      color: #666;
+      font-weight: 600;
+      font-size: 1em;
+    }
+
+    /* Contact */
+    #contact {
+      text-align: center;
+      background: linear-gradient(135deg, #1F4E79 0%, #2c5f8d 100%);
+      color: white;
+    }
+
+    #contact h2 {
+      color: white;
+    }
+
+    .contact-info {
+      font-size: 1.2em;
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      padding: 12px 25px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2.5em; }
+      .hero-content { flex-direction: column-reverse; text-align: center; }
+      .hero-image { flex: 0 0 250px; }
+      .profile-photo { width: 250px; height: 250px; }
+      .hero-buttons { justify-content: center; }
+      h2 { font-size: 2.2em; }
+      nav ul { gap: 15px; font-size: 0.9em; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">DS</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">DS</div>
+      <ul>
+        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text" data-aos="fade-right">
+          <h1>Dheera Shaji</h1>
+          <p class="subtitle">Data Scientist | AI Engineer</p>
+          <p class="description">Results-driven Data Scientist with 3 years of experience designing and deploying intelligent, scalable AI solutions across LLMs, Deep Learning, NLP, and Computer Vision.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+            <a href="https://www.linkedin.com/in/dheera-shaji" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> View LinkedIn</a>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section with Photo -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Dheera Shaji</h1>
-                    <p class="subtitle">Data Scientist | AI Engineer</p>
-                    <p class="description">Results-driven Data Scientist with 3 years of experience designing and deploying intelligent, scalable AI solutions across LLMs, Deep Learning, NLP, and Computer Vision.</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="https://www.linkedin.com/in/dheera-shaji" target="_blank" class="btn btn-secondary">View LinkedIn</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="profile.jpeg" alt="Dheera Shaji" class="profile-photo">
-                </div>
-            </div>
+        <div class="hero-image" data-aos="fade-left">
+          <img src="profile.jpeg" alt="Dheera Shaji" class="profile-photo">
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>I'm a passionate Data Scientist with 3 years of experience in building and deploying cutting-edge AI solutions. My expertise spans across Large Language Models (LLMs), Deep Learning, Natural Language Processing, and Computer Vision.</p>
-                
-                <p>I specialize in creating end-to-end data pipelines and have hands-on experience with cloud platforms like AWS and GCP, along with DevOps tools such as Docker, CircleCI, Jenkins, and Airflow for scalable AI deployments.</p>
-                
-                <p>What drives me is the opportunity to transform research innovations into production-ready solutions that create real business impact. I thrive in cross-functional environments where I can collaborate with diverse teams to solve complex problems.</p>
-            </div>
+  <!-- About Section -->
+  <section id="about" data-aos="fade-up">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>I'm a passionate Data Scientist with 3 years of experience in building and deploying cutting-edge AI solutions. My expertise spans across Large Language Models (LLMs), Deep Learning, Natural Language Processing, and Computer Vision.</p>
+        <p>I specialize in creating end-to-end data pipelines and have hands-on experience with cloud platforms like AWS and GCP, along with DevOps tools such as Docker, CircleCI, Jenkins, and Airflow for scalable AI deployments.</p>
+        <p>What drives me is the opportunity to transform research innovations into production-ready solutions that create real business impact. I thrive in cross-functional environments where I can collaborate with diverse teams to solve complex problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" data-aos="fade-up">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-terminal"></i> Programming</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">Java</span>
+          </div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Java</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>AI & ML Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">Hugging Face</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">OpenCV</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">CircleCI</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Airflow</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Databases & Search</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">NoSQL</span>
-                        <span class="skill-tag">OpenSearch</span>
-                        <span class="skill-tag">Pinecone</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Specializations</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">LLMs</span>
-                        <span class="skill-tag">RAG</span>
-                        <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">Object Detection</span>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-brain"></i> AI & ML</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">Hugging Face</span>
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">OpenCV</span>
+          </div>
         </div>
-    </section>
-
-    <!-- Core Competencies -->
-    <section id="competencies">
-        <div class="container">
-            <h2>Core Competencies</h2>
-            <div class="competencies">
-                <span class="competency-pill">Large Language Models (LLMs)</span>
-                <span class="competency-pill">Agentic AI Workflows</span>
-                <span class="competency-pill">Retrieval-Augmented Generation (RAG)</span>
-                <span class="competency-pill">Experimentation and A/B Testing</span>
-                <span class="competency-pill">Machine Learning & Statistical Modelling</span>
-                <span class="competency-pill">Deep Learning & Computer Vision</span>
-                <span class="competency-pill">Data Wrangling & Feature Engineering</span>
-                <span class="competency-pill">Model Optimization / Quantization</span>
-                <span class="competency-pill">ETL Processes & Data Pipelines</span>
-                <span class="competency-pill">Prompt Engineering</span>
-                <span class="competency-pill">Data Visualization</span>
-                <span class="competency-pill">Cross-functional Collaboration</span>
-            </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">CircleCI</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Airflow</span>
+          </div>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2>Work Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Data Scientist | RapidClaims.ai</h3>
-                    <span class="experience-date">Jul 2024 - Present</span>
-                </div>
-                <p>Automating medical coding using AI, LLMs, and agentic workflows to build scalable, intelligent automation systems.</p>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>AI Engineer | AjnaLens</h3>
-                    <span class="experience-date">Jan 2024 - Jun 2024</span>
-                </div>
-                <ul>
-                    <li>Led design and deployment of Text-to-3D model generation pipeline using DreamGaussian and InfiniteMesh frameworks</li>
-                    <li>Improved 3D image generation quality by implementing LLM-guided prompt engineering with Mistral 7B, reducing rendering artifacts by 25%</li>
-                    <li>Achieved 9% device performance enhancement through targeted system analytics and optimization</li>
-                    <li>Developed real-time analytics dashboard cutting average debugging time by 50%</li>
-                    <li>Designed and optimized computer vision pipelines for multi-modal input to 3D content generation</li>
-                    <li>Integrated Vision-Language Models (VLMs) and Transformer-based architectures into production workflows</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Data Scientist | SigTuple</h3>
-                    <span class="experience-date">Jan 2023 - Dec 2023</span>
-                </div>
-                <ul>
-                    <li>Spearheaded development of WBC detection and classification pipeline using YOLOX-based two-stage architecture, achieving R² score of 0.9</li>
-                    <li>Engineered intensity-based biophysical model to convert cell area to volume, improving CBC index estimation accuracy</li>
-                    <li>Applied self-supervised learning and unsupervised clustering to enhance data diversity and reduce class imbalance</li>
-                    <li>Implemented model quantization for ECA-ResNet architectures, reducing analyzer inference latency by 15%</li>
-                    <li>Designed Quality Improvement pipeline for image artifact detection, improving dataset consistency</li>
-                    <li>Integrated LabelStudio into annotation workflow, reducing annotation time by 60%</li>
-                </ul>
-            </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-database"></i> Data</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">NoSQL</span>
+            <span class="skill-tag">OpenSearch</span>
+            <span class="skill-tag">Pinecone</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Education Section -->
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-grid">
-                <div class="education-item">
-                    <h3>Integrated M.Sc. in Data Science</h3>
-                    <p><strong>Amrita Vishwa Vidyapeetham</strong></p>
-                    <p>2023 | CGPA: <strong>8.91</strong></p>
-                </div>
-                
-                <div class="education-item">
-                    <h3>AISSCE in Science</h3>
-                    <p><strong>Amrita Vidyalayam, Thrissur</strong></p>
-                    <p>2018 | Percentage: <strong>86%</strong></p>
-                </div>
-            </div>
+  <!-- Experience -->
+  <section id="experience" data-aos="fade-up">
+    <div class="container">
+      <h2>Work Experience</h2>
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>Data Scientist | RapidClaims.ai</h3>
+          <span class="experience-date">Jul 2024 - Present</span>
         </div>
-    </section>
+        <p>Automating medical coding using AI, LLMs, and agentic workflows to build scalable, intelligent automation systems.</p>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px;">I'm always interested in discussing new opportunities, collaborations, or innovative projects.</p>
-            <div class="contact-info">
-                <a href="mailto:dheerashaji@gmail.com">📧 Email</a>
-                <a href="https://www.linkedin.com/in/dheera-shaji" target="_blank">💼 LinkedIn</a>
-                <a href="tel:7510797789">📱 Call</a>
-            </div>
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>AI Engineer | AjnaLens</h3>
+          <span class="experience-date">Jan 2024 - Jun 2024</span>
         </div>
-    </section>
+        <ul>
+          <li>Led design and deployment of Text-to-3D model generation pipeline using DreamGaussian and InfiniteMesh frameworks</li>
+          <li>Improved 3D image generation quality with LLM-guided prompt engineering</li>
+          <li>Developed real-time analytics dashboard cutting debugging time by 50%</li>
+        </ul>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Dheera Shaji. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>Data Scientist | SigTuple</h3>
+          <span class="experience-date">Jan 2023 - Dec 2023</span>
+        </div>
+        <ul>
+          <li>Spearheaded development of WBC detection pipeline using YOLOX two-stage architecture</li>
+          <li>Improved CBC index estimation accuracy with biophysical modeling</li>
+          <li>Implemented model quantization for latency reduction</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" data-aos="fade-up">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <p style="font-size: 1.2em; margin-bottom: 30px;">I'm always interested in discussing new opportunities, collaborations, or innovative projects.</p>
+      <div class="contact-info">
+        <a href="mailto:dheerashaji@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/dheera-shaji" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dhe
