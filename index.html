@@ -4,21 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dheera Shaji | Data Scientist Portfolio</title>
-  <!-- Font Awesome Icons -->
+
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
@@ -42,25 +37,9 @@
       z-index: 100;
       backdrop-filter: blur(10px);
     }
-
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5em;
-      font-weight: 700;
-      color: #1F4E79;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5em; font-weight: 700; color: #1F4E79; }
+    nav ul { list-style: none; display: flex; gap: 25px; }
     nav a {
       color: #333;
       text-decoration: none;
@@ -71,71 +50,42 @@
       align-items: center;
       gap: 6px;
     }
+    nav a:hover { color: #1F4E79; }
 
-    nav a:hover {
-      color: #1F4E79;
-    }
-
-    /* Hero Section */
+    /* Hero */
     .hero {
       padding: 100px 0;
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     }
-
-    .hero-content {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
-
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
-    }
-
+    .hero-content { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+    .hero-text { flex: 1; min-width: 300px; }
     .hero-text h1 {
-      font-size: 3.5em;
-      color: #1F4E79;
-      margin-bottom: 15px;
-      line-height: 1.2;
+      font-size: 3.5em; color: #1F4E79;
+      margin-bottom: 15px; line-height: 1.2;
     }
-
     .hero-text .subtitle {
-      font-size: 1.5em;
-      color: #666;
-      margin-bottom: 25px;
-      font-weight: 300;
+      font-size: 1.5em; color: #666;
+      margin-bottom: 25px; font-weight: 300;
       overflow: hidden;
       border-right: .15em solid #1F4E79;
       white-space: nowrap;
       animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
       width: 0;
     }
-
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      from { width: 0 } to { width: 100% }
     }
-
     @keyframes blink {
       from, to { border-color: transparent }
       50% { border-color: #1F4E79; }
     }
-
     .hero-text .description {
       font-size: 1.1em;
       color: #555;
       line-height: 1.8;
       margin-bottom: 35px;
     }
-
-    .hero-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
+    .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
     .btn {
       padding: 15px 35px;
       border-radius: 30px;
@@ -145,57 +95,37 @@
       display: inline-block;
       font-size: 1em;
     }
-
     .btn-primary {
       background: #1F4E79;
       color: white;
     }
-
     .btn-primary:hover {
       background: #2c5f8d;
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(31, 78, 121, 0.3);
     }
-
     .btn-secondary {
       background: white;
       color: #1F4E79;
       border: 2px solid #1F4E79;
     }
-
     .btn-secondary:hover {
       background: #1F4E79;
       color: white;
       transform: translateY(-3px);
     }
-
-    .hero-image {
-      flex: 0 0 350px;
-      text-align: center;
-    }
-
+    .hero-image { flex: 0 0 350px; text-align: center; }
     .profile-photo {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
+      width: 350px; height: 350px; border-radius: 50%;
       object-fit: cover;
       border: 8px solid white;
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
       transition: transform 0.3s;
     }
+    .profile-photo:hover { transform: scale(1.05); }
 
-    .profile-photo:hover {
-      transform: scale(1.05);
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
-    section:nth-child(odd) {
-      background: #f8f9fa;
-    }
-
+    section { padding: 80px 0; }
+    section:nth-child(odd) { background: #f8f9fa; }
     h2 {
       font-size: 2.8em;
       color: #1F4E79;
@@ -212,7 +142,6 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-
     .skill-category {
       background: white;
       padding: 35px;
@@ -220,12 +149,10 @@
       box-shadow: 0 5px 25px rgba(0,0,0,0.08);
       transition: all 0.3s;
     }
-
     .skill-category:hover {
       transform: translateY(-8px);
       box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     }
-
     .skill-category h3 {
       color: #1F4E79;
       margin-bottom: 20px;
@@ -234,14 +161,12 @@
       align-items: center;
       gap: 8px;
     }
-
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 15px;
     }
-
     .skill-tag {
       background: #e9ecef;
       color: #1F4E79;
@@ -251,7 +176,6 @@
       font-weight: 500;
       transition: all 0.3s;
     }
-
     .skill-tag:hover {
       background: #1F4E79;
       color: white;
@@ -269,12 +193,10 @@
       transition: all 0.3s;
       border-left: 5px solid #1F4E79;
     }
-
     .experience-item:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 12px 35px rgba(0,0,0,0.15);
     }
-
     .experience-header {
       display: flex;
       justify-content: space-between;
@@ -283,17 +205,8 @@
       flex-wrap: wrap;
       gap: 15px;
     }
-
-    .experience-header h3 {
-      color: #1F4E79;
-      font-size: 1.6em;
-    }
-
-    .experience-date {
-      color: #666;
-      font-weight: 600;
-      font-size: 1em;
-    }
+    .experience-header h3 { color: #1F4E79; font-size: 1.6em; }
+    .experience-date { color: #666; font-weight: 600; font-size: 1em; }
 
     /* Contact */
     #contact {
@@ -301,11 +214,7 @@
       background: linear-gradient(135deg, #1F4E79 0%, #2c5f8d 100%);
       color: white;
     }
-
-    #contact h2 {
-      color: white;
-    }
-
+    #contact h2 { color: white; }
     .contact-info {
       font-size: 1.2em;
       margin-top: 35px;
@@ -314,7 +223,6 @@
       gap: 25px;
       flex-wrap: wrap;
     }
-
     .contact-info a {
       color: white;
       text-decoration: none;
@@ -326,7 +234,6 @@
       align-items: center;
       gap: 10px;
     }
-
     .contact-info a:hover {
       background: rgba(255,255,255,0.2);
       transform: translateY(-3px);
@@ -352,6 +259,7 @@
   </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <nav>
     <div class="container">
@@ -366,7 +274,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
@@ -386,7 +294,7 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" data-aos="fade-up">
     <div class="container">
       <h2>About Me</h2>
@@ -398,7 +306,7 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section id="skills" data-aos="fade-up">
     <div class="container">
       <h2>Technical Skills</h2>
@@ -498,4 +406,12 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Dhe
+    <p>&copy; 2025 Dheera Shaji. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+
+</body>
+</html>
